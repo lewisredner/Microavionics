@@ -1,0 +1,337 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F87K22 ]
+[d frameptr 4065 ]
+"4 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"7 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/strcpy.c
+[v _strcpy strcpy `(*.39uc  1 e 2 0 ]
+"15 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"83 /Users/svenkataraman/Documents/Lab6.X/lab6_orig_2020.c
+[v _main main `(v  1 e 1 0 ]
+"97
+[v _Initial Initial `(v  1 e 1 0 ]
+"150
+[v _HiPriISR HiPriISR `IIH(v  1 e 1 0 ]
+"161
+[v _LoPriISR LoPriISR `IIL(v  1 e 1 0 ]
+"180
+[v _TMR0handler TMR0handler `(v  1 e 1 0 ]
+"51 /Users/svenkataraman/Documents/Lab6.X/LCDroutinesEasyPic.c
+[v _InitLCD InitLCD `(v  1 e 1 0 ]
+"94
+[v _DisplayC DisplayC `(v  1 e 1 0 ]
+"110
+[v _DisplayV DisplayV `(v  1 e 1 0 ]
+"7890 /Applications/microchip/xc8/v2.05/pic/include/pic18f87k22.h
+[v _PORTB PORTB `VEuc  1 e 1 @3969 ]
+[s S309 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"8319
+[s S318 . 1 `uc 1 AD0 1 0 :1:0 
+`uc 1 AD1 1 0 :1:1 
+`uc 1 AD2 1 0 :1:2 
+`uc 1 AD3 1 0 :1:3 
+`uc 1 AD4 1 0 :1:4 
+`uc 1 AD5 1 0 :1:5 
+`uc 1 AD6 1 0 :1:6 
+`uc 1 AD7 1 0 :1:7 
+]
+[s S327 . 1 `uc 1 PSP0 1 0 :1:0 
+`uc 1 PSP1 1 0 :1:1 
+`uc 1 PSP2 1 0 :1:2 
+`uc 1 PSP3 1 0 :1:3 
+`uc 1 PSP4 1 0 :1:4 
+`uc 1 PSP5 1 0 :1:5 
+`uc 1 PSP6 1 0 :1:6 
+`uc 1 PSP7 1 0 :1:7 
+]
+[s S336 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 NOT_SS2 1 0 :1:7 
+]
+[s S339 . 1 `uc 1 CTPLS 1 0 :1:0 
+`uc 1 T5CKI 1 0 :1:1 
+`uc 1 . 1 0 :2:2 
+`uc 1 SDO2 1 0 :1:4 
+`uc 1 SDI2 1 0 :1:5 
+`uc 1 SCK2 1 0 :1:6 
+`uc 1 nSS2 1 0 :1:7 
+]
+[s S347 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 T7G 1 0 :1:1 
+`uc 1 . 1 0 :3:2 
+`uc 1 SDA2 1 0 :1:5 
+`uc 1 SCL2 1 0 :1:6 
+]
+[s S353 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 SS2 1 0 :1:7 
+]
+[u S356 . 1 `S309 1 . 1 0 `S318 1 . 1 0 `S327 1 . 1 0 `S336 1 . 1 0 `S339 1 . 1 0 `S347 1 . 1 0 `S353 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES356  1 e 1 @3971 ]
+"9682
+[v _LATB LATB `VEuc  1 e 1 @3978 ]
+[s S493 . 1 `uc 1 LATB0 1 0 :1:0 
+`uc 1 LATB1 1 0 :1:1 
+`uc 1 LATB2 1 0 :1:2 
+`uc 1 LATB3 1 0 :1:3 
+`uc 1 LATB4 1 0 :1:4 
+`uc 1 LATB5 1 0 :1:5 
+`uc 1 LATB6 1 0 :1:6 
+`uc 1 LATB7 1 0 :1:7 
+]
+"9709
+[s S502 . 1 `uc 1 LB0 1 0 :1:0 
+`uc 1 LB1 1 0 :1:1 
+`uc 1 LB2 1 0 :1:2 
+`uc 1 LB3 1 0 :1:3 
+`uc 1 LB4 1 0 :1:4 
+`uc 1 LB5 1 0 :1:5 
+`uc 1 LB6 1 0 :1:6 
+`uc 1 LB7 1 0 :1:7 
+]
+[u S511 . 1 `S493 1 . 1 0 `S502 1 . 1 0 ]
+[v _LATBbits LATBbits `VES511  1 e 1 @3978 ]
+"9794
+[v _LATC LATC `VEuc  1 e 1 @3979 ]
+"9906
+[v _LATD LATD `VEuc  1 e 1 @3980 ]
+[s S64 . 1 `uc 1 LATD0 1 0 :1:0 
+`uc 1 LATD1 1 0 :1:1 
+`uc 1 LATD2 1 0 :1:2 
+`uc 1 LATD3 1 0 :1:3 
+`uc 1 LATD4 1 0 :1:4 
+`uc 1 LATD5 1 0 :1:5 
+`uc 1 LATD6 1 0 :1:6 
+`uc 1 LATD7 1 0 :1:7 
+]
+"9933
+[s S73 . 1 `uc 1 LD0 1 0 :1:0 
+`uc 1 LD1 1 0 :1:1 
+`uc 1 LD2 1 0 :1:2 
+`uc 1 LD3 1 0 :1:3 
+`uc 1 LD4 1 0 :1:4 
+`uc 1 LD5 1 0 :1:5 
+`uc 1 LD6 1 0 :1:6 
+`uc 1 LD7 1 0 :1:7 
+]
+[u S82 . 1 `S64 1 . 1 0 `S73 1 . 1 0 ]
+[v _LATDbits LATDbits `VES82  1 e 1 @3980 ]
+"10594
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+[s S32 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"10611
+[u S41 . 1 `S32 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES41  1 e 1 @3987 ]
+"10656
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"10718
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+[s S113 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+]
+"16371
+[s S115 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_POR 1 0 :1:1 
+]
+[s S118 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_PD 1 0 :1:2 
+]
+[s S121 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 NOT_TO 1 0 :1:3 
+]
+[s S124 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 NOT_RI 1 0 :1:4 
+]
+[s S127 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_CM 1 0 :1:5 
+]
+[s S130 . 1 `uc 1 nBOR 1 0 :1:0 
+`uc 1 nPOR 1 0 :1:1 
+`uc 1 nPD 1 0 :1:2 
+`uc 1 nTO 1 0 :1:3 
+`uc 1 nRI 1 0 :1:4 
+`uc 1 nCM 1 0 :1:5 
+`uc 1 SBOREN 1 0 :1:6 
+`uc 1 IPEN 1 0 :1:7 
+]
+[s S139 . 1 `uc 1 BOR 1 0 :1:0 
+`uc 1 POR 1 0 :1:1 
+`uc 1 PD 1 0 :1:2 
+`uc 1 TO 1 0 :1:3 
+`uc 1 RI 1 0 :1:4 
+`uc 1 CM 1 0 :1:5 
+]
+[u S146 . 1 `S113 1 . 1 0 `S115 1 . 1 0 `S118 1 . 1 0 `S121 1 . 1 0 `S124 1 . 1 0 `S127 1 . 1 0 `S130 1 . 1 0 `S139 1 . 1 0 ]
+[v _RCONbits RCONbits `VES146  1 e 1 @4048 ]
+"16722
+[v _T0CON T0CON `VEuc  1 e 1 @4053 ]
+[s S279 . 1 `uc 1 T0PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+`uc 1 T08BIT 1 0 :1:6 
+`uc 1 TMR0ON 1 0 :1:7 
+]
+"16742
+[s S286 . 1 `uc 1 T0PS0 1 0 :1:0 
+`uc 1 T0PS1 1 0 :1:1 
+`uc 1 T0PS2 1 0 :1:2 
+]
+[u S290 . 1 `S279 1 . 1 0 `S286 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES290  1 e 1 @4053 ]
+"16799
+[v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
+"16819
+[v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
+[s S189 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 NOT_RBPU 1 0 :1:7 
+]
+"17479
+[s S192 . 1 `uc 1 RBIP 1 0 :1:0 
+`uc 1 INT3IP 1 0 :1:1 
+`uc 1 TMR0IP 1 0 :1:2 
+`uc 1 INTEDG3 1 0 :1:3 
+`uc 1 INTEDG2 1 0 :1:4 
+`uc 1 INTEDG1 1 0 :1:5 
+`uc 1 INTEDG0 1 0 :1:6 
+`uc 1 nRBPU 1 0 :1:7 
+]
+[s S201 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT3P 1 0 :1:1 
+`uc 1 T0IP 1 0 :1:2 
+`uc 1 . 1 0 :4:3 
+`uc 1 RBPU 1 0 :1:7 
+]
+[u S207 . 1 `S189 1 . 1 0 `S192 1 . 1 0 `S201 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES207  1 e 1 @4081 ]
+[s S230 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"17576
+[s S239 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S248 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S252 . 1 `S230 1 . 1 0 `S239 1 . 1 0 `S248 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES252  1 e 1 @4082 ]
+"68 /Users/svenkataraman/Documents/Lab6.X/lab6_orig_2020.c
+[v _LCDRow1 LCDRow1 `C[10]uc  1 e 10 0 ]
+"29 /Users/svenkataraman/Documents/Lab6.X/LCDroutinesEasyPic.c
+[v _LCDInitStr_ LCDInitStr_ `C[7]uc  1 s 7 LCDInitStr_ ]
+"83 /Users/svenkataraman/Documents/Lab6.X/lab6_orig_2020.c
+[v _main main `(v  1 e 1 0 ]
+{
+"88
+} 0
+"97
+[v _Initial Initial `(v  1 e 1 0 ]
+{
+"142
+} 0
+"51 /Users/svenkataraman/Documents/Lab6.X/LCDroutinesEasyPic.c
+[v _InitLCD InitLCD `(v  1 e 1 0 ]
+{
+"53
+[v InitLCD@nibble nibble `uc  1 a 1 5 ]
+"52
+[v InitLCD@count count `uc  1 a 1 4 ]
+"83
+} 0
+"94
+[v _DisplayC DisplayC `(v  1 e 1 0 ]
+{
+"95
+[v DisplayC@temp temp `[10]uc  1 a 10 13 ]
+"94
+[v DisplayC@LCDStr LCDStr `*.32Cuc  1 p 2 11 ]
+"98
+} 0
+"7 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/strcpy.c
+[v _strcpy strcpy `(*.39uc  1 e 2 0 ]
+{
+"14
+[v strcpy@d d `*.39uc  1 a 2 9 ]
+"13
+[v strcpy@s s `*.32Cuc  1 a 2 7 ]
+"7
+[v strcpy@dest dest `*.39uc  1 p 2 3 ]
+[v strcpy@src src `*.32Cuc  1 p 2 5 ]
+"18
+} 0
+"110 /Users/svenkataraman/Documents/Lab6.X/LCDroutinesEasyPic.c
+[v _DisplayV DisplayV `(v  1 e 1 0 ]
+{
+"111
+[v DisplayV@count count `uc  1 a 1 6 ]
+"112
+[v DisplayV@nibble nibble `uc  1 a 1 5 ]
+"110
+[v DisplayV@LCDStr LCDStr `*.39Cuc  1 p 2 3 ]
+"148
+} 0
+"161 /Users/svenkataraman/Documents/Lab6.X/lab6_orig_2020.c
+[v _LoPriISR LoPriISR `IIL(v  1 e 1 0 ]
+{
+"172
+} 0
+"180
+[v _TMR0handler TMR0handler `(v  1 e 1 0 ]
+{
+"194
+} 0
+"150
+[v _HiPriISR HiPriISR `IIH(v  1 e 1 0 ]
+{
+"152
+} 0
