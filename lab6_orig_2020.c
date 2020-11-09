@@ -65,7 +65,9 @@
 /******************************************************************************
  * Global variables
  ******************************************************************************/
-const char LCDRow1[] = {0x80,'T','E','S','T','I','N','G','!',0x00};
+//const char LCDRow1[] = {0x80,'T','=',0x00};
+char LCDRow1[] = {0x80,'T','=','X','X','.','X','C',0x00};
+char LCDRow2[] = {0xC0,'P','T','=',0x00};
 unsigned int Alive_count = 0;
 //unsigned int led_max = 2;
 //unsigned int toggle = 0xFF;
@@ -76,14 +78,25 @@ unsigned int Alive_count = 0;
  ******************************************************************************/
 void Initial(void);         // Function to initialize hardware and interrupts
 void TMR0handler(void);     // Interrupt handler for TMR0, typo in main
+unsigned short get_temperature(void);
+unsigned short get_pot(void);
+void update_display(unsigned short temperature, unsigned short pot);
 
 /******************************************************************************
  * main()
  ******************************************************************************/
 void main() {
      Initial();                 // Initialize everything
+     unsigned short temp;
+     unsigned short pot;
+     
       while(1) {
         // Sit here for ever
+          temp = get_temperature();
+          pot = get_pot();
+          update_display(temp,pot);
+          
+        
      }
 }
 
@@ -112,6 +125,7 @@ void Initial() {
     // Initialize the LCD and print to it
     InitLCD();
     DisplayC(LCDRow1);
+    DisplayC(LCDRow2);
     
     LATDbits.LATD5 = 1;
     __delay_ms(500);
@@ -139,6 +153,19 @@ void Initial() {
     INTCONbits.GIEH = 1;            // Enable all interrupts
 
     T0CONbits.TMR0ON = 1;           // Turning on TMR0
+    ADCON0 = 0x02;
+    
+    ADCON1 = 0x00;
+    ADCON2 = 0b10010101;
+    
+    ANCON0 = 0x05;
+    TRISA = 0x05;
+    ADCON0 = 0x03;
+    __delay_ms(1);
+    unsigned char t = get_temperature();
+    
+    
+    
 }
 
 /******************************************************************************
@@ -191,4 +218,61 @@ void TMR0handler() {
 
            
     INTCONbits.TMR0IF = 0;      //Clear flag and return to polling routine
+}
+
+unsigned short get_temperature(void){
+    unsigned short temperature;
+    unsigned short temph;
+    ADCON0bits.CHS0 =1;
+    ADCON0bits.CHS1 =1;
+    //throw away
+    ADCON0bits.GO  = 1;
+    __delay_ms(1);
+    while(1){
+        if(ADCON0bits.DONE ==0){
+            
+            break;
+        }
+    }
+    __delay_ms(1);
+    ADCON0bits.GO  = 1;
+    while(1){
+        if(ADCON0bits.DONE ==0){
+                temperature = ADRESL;
+                temph = ADRESH & 0x0F; //0b00001111
+                temperature =  temperature | (temph<<8)  ;
+                
+            break;
+        }
+    }    
+    
+    return temperature;
+    
+}
+    
+unsigned short get_pot(void){
+    unsigned short pot;
+    
+    
+    return pot;
+}
+    
+void update_display(unsigned short temperature, unsigned short pot){
+    //806 uv /bin
+     float voltage = temperature*806; //uv
+     //voltage = 0;
+     float temp_c = -55+voltage/10000; 
+    temp_c = temp_c*10;
+    
+    char temp_str[10];
+    sprintf(temp_str, "%f", voltage);
+    
+    LCDRow1[3]= temp_str[0];
+    LCDRow1[4]= temp_str[1];
+    LCDRow1[6]= temp_str[2];
+    DisplayC(LCDRow1);
+    
+    
+    
+    
 }
