@@ -1,4 +1,3 @@
-
 /****** ASEN 4/5067 Lab 6 ******************************************************
  * Author: YOUR NAME HERE
  * Date  : DATE HERE
@@ -67,7 +66,7 @@
  ******************************************************************************/
 //const char LCDRow1[] = {0x80,'T','=',0x00};
 char LCDRow1[] = {0x80,'T','=','X','X','.','X','C',0x00};
-char LCDRow2[] = {0xC0,'P','T','=',0x00};
+char LCDRow2[] = {0xC0,'P','T','=','X','.','X','X',0x00};
 unsigned int Alive_count = 0;
 //unsigned int led_max = 2;
 //unsigned int toggle = 0xFF;
@@ -153,16 +152,16 @@ void Initial() {
     INTCONbits.GIEH = 1;            // Enable all interrupts
 
     T0CONbits.TMR0ON = 1;           // Turning on TMR0
-    ADCON0 = 0x02;
+    ADCON0 = 0x01;
     
     ADCON1 = 0x00;
-    ADCON2 = 0b10010101;
+    ADCON2 = 0b10111101;
     
     ANCON0 = 0x05;
-    TRISA = 0x05;
-    ADCON0 = 0x03;
-    __delay_ms(1);
-    unsigned char t = get_temperature();
+    TRISA = 0b00001111;
+    
+    //_delay_ms(1);
+    //unsigned char t = get_temperature();
     
     
     
@@ -221,13 +220,15 @@ void TMR0handler() {
 }
 
 unsigned short get_temperature(void){
-    unsigned short temperature;
-    unsigned short temph;
+    unsigned short adcl;
+    unsigned short adch;
+    unsigned short adc_12bit;
     ADCON0bits.CHS0 =1;
     ADCON0bits.CHS1 =1;
     //throw away
-    ADCON0bits.GO  = 1;
     __delay_ms(1);
+    ADCON0bits.GO  = 1;
+
     while(1){
         if(ADCON0bits.DONE ==0){
             
@@ -238,41 +239,87 @@ unsigned short get_temperature(void){
     ADCON0bits.GO  = 1;
     while(1){
         if(ADCON0bits.DONE ==0){
-                temperature = ADRESL;
-                temph = ADRESH & 0x0F; //0b00001111
-                temperature =  temperature | (temph<<8)  ;
+                adcl = ADRESL;
+                adch = ADRESH & 0x0F; //0b00001111
+                adc_12bit =  adcl | (adch<<8)  ;
                 
             break;
         }
     }    
     
-    return temperature;
+    return adc_12bit;
     
 }
     
 unsigned short get_pot(void){
-    unsigned short pot;
     
+    unsigned short adcl;
+    unsigned short adch;
+    unsigned short adc_12bit;
+    ADCON0bits.CHS0 =0;
+    ADCON0bits.CHS1 =0;
+    //throw away
+    __delay_ms(1);
+    ADCON0bits.GO  = 1;
+
+    while(1){
+        if(ADCON0bits.DONE ==0){
+            
+            break;
+        }
+    }
+    __delay_ms(1);
+    ADCON0bits.GO  = 1;
+    while(1){
+        if(ADCON0bits.DONE ==0){
+                adcl = ADRESL;
+                adch = ADRESH & 0x0F; //0b00001111
+                adc_12bit =  adcl | (adch<<8)  ;
+                
+            break;
+        }
+    }    
     
-    return pot;
+    return adc_12bit;
+
 }
     
-void update_display(unsigned short temperature, unsigned short pot){
+void update_display(unsigned short temp_adc, unsigned short pot){
     //806 uv /bin
-     float voltage = temperature*806; //uv
+     float voltage = temp_adc*0.806; //mv
      //voltage = 0;
-     float temp_c = -55+voltage/10000; 
+     float temp_c = voltage/10; 
+     // check this code
     temp_c = temp_c*10;
+    int temp2;
+    temp2 = (int)temp_c;
+    // convert to integer - typecast
     
-    char temp_str[10];
-    sprintf(temp_str, "%f", voltage);
+    char temp_str[5];
+    sprintf(temp_str, "%i", temp2);
     
+    // before convert to string try converting to integer
+
     LCDRow1[3]= temp_str[0];
-    LCDRow1[4]= temp_str[1];
-    LCDRow1[6]= temp_str[2];
+   LCDRow1[4]= temp_str[1];
+   LCDRow1[6]= temp_str[2];
     DisplayC(LCDRow1);
     
+    temp_c = pot*100;
+    temp2 = (int)temp_c;
+    // convert to integer - typecast
     
+    //char temp_str[5];
+    sprintf(temp_str, "%i", temp2);
+    
+    // before convert to string try converting to integer
+
+    LCDRow2[4]= temp_str[0];
+   LCDRow2[6]= temp_str[1];
+   LCDRow2[7]= temp_str[2];
+    DisplayC(LCDRow2);
+    
+    __delay_ms(500);
     
     
 }
